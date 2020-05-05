@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  Cards,
+  LineChart,
+  DoughnutChart,
+  Header,
+  Sidebar,
+  Spinner,
+  CountryPicker,
+} from "./components";
+import styles from "./App.module.css";
+import { fetchData } from "./api";
+export default class App extends Component {
+  state = {
+    globalData: {},
+  };
+
+  async componentDidMount() {
+    const fetchedData = await fetchData();
+    this.setState({ globalData: fetchedData });
+  }
+  render() {
+    const { globalData } = this.state;
+
+    return (
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.global}>
+          <p className={styles.title}>Global Status</p>
+          <div className={styles.globalContainer}>
+            <Cards data={globalData} />
+            <LineChart />
+            <DoughnutChart />
+          </div>
+        </div>
+        <div className={styles.countryData}>
+          <p className={styles.title}>Cases per country</p>
+          <div className={styles.countryContainer}>
+            <CountryPicker />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;

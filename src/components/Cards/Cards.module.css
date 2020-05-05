@@ -1,0 +1,27 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  grid-gap: 20px;
+}
+.cards {
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+  font-weight: 300;
+  font-size: 14px;
+  color: #aeb3b1;
+}
+.cardText {
+  color: #4d4c45;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.icon {
+  margin-bottom: 0.8rem;
+}

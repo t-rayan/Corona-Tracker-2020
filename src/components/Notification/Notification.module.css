@@ -1,0 +1,10 @@
+.iconContainer {
+  background-color: #fff;
+  padding: 0.4rem 0.5rem;
+  border-radius: 5px;
+
+  text-align: center;
+}
+.bellIcon {
+  font-size: large;
+}

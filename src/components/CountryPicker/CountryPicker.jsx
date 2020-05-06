@@ -1,23 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../CountryPicker/CountryPicker.module.css";
+import * as ReactBootstrap from "react-bootstrap";
+import { fetchAllCountry } from "../../api/index";
 
-import {
-  InputGroup,
-  FormControl,
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap";
+import cx from "classnames";
 
 const CountryPicker = () => {
+  const [allCountry, setAllCountry] = useState([]);
+
+  //useEffect hook
+  useEffect(() => {
+    const fetchApi = async () => {
+      setAllCountry(await fetchAllCountry());
+    };
+    fetchApi();
+  }, []);
+
+  console.log(allCountry);
+
+  const renderCountry = (allCountry, index) => {
+    return (
+      <tr key={index}>
+        <td>{allCountry.Country}</td>
+        <td>{allCountry.TotalConfirmed}</td>
+        <td>{allCountry.NewConfirmed}</td>
+        <td>{allCountry.TotalRecovered}</td>
+        <td>{allCountry.TotalDeaths}</td>
+      </tr>
+    );
+  };
+
   return (
     <div className="countryPicker">
       <div className="d-flex justify-content-between">
-        <p>Cases per Country</p>
-        <p>Search Bar</p>
+        <p className={styles.title}>Cases per Country</p>
+        <div className={styles.searchContainer}>
+          <form>
+            <div className="form-group">
+              <input
+                type="text"
+                className={cx(styles.searchInput, "form-control")}
+                placeholder="Search country"
+              />
+            </div>
+          </form>
+        </div>
       </div>
-      <div className="bg-white rounded shadow-lg p-3">
-        <table class="table table-borderless">
-          <thead>
+      <div className={cx(styles.mycustomscrollbar, styles.tableWrapperScrolly)}>
+        <ReactBootstrap.Table className="table table-hover table-borderless">
+          <thead className={cx("thead-dark", styles.theadDark)}>
             <tr>
               <th scope="col">Country</th>
               <th scope="col">Total Cases</th>
@@ -26,37 +57,8 @@ const CountryPicker = () => {
               <th scope="col">Total Deaths</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th>USA</th>
-              <td>7894879034</td>
-              <td>90389</td>
-              <td>6347893</td>
-              <td>73833333</td>
-            </tr>
-            <tr>
-              <th>Nepal</th>
-              <td>7894879034</td>
-              <td>90389</td>
-              <td>6347893</td>
-              <td>73833333</td>
-            </tr>
-            <tr>
-              <th>China</th>
-              <td>7894879034</td>
-              <td>90389</td>
-              <td>6347893</td>
-              <td>73833333</td>
-            </tr>
-            <tr>
-              <th>Germany</th>
-              <td>7894879034</td>
-              <td>90389</td>
-              <td>6347893</td>
-              <td>73833333</td>
-            </tr>
-          </tbody>
-        </table>
+          <tbody>{allCountry.map(renderCountry)}</tbody>
+        </ReactBootstrap.Table>
       </div>
     </div>
   );

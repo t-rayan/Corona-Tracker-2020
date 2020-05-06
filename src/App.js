@@ -37,7 +37,6 @@ export default class App extends Component {
           </div>
         </div>
         <div className={styles.countryData}>
-          <p className={styles.title}>Cases per country</p>
           <div className={styles.countryContainer}>
             <CountryPicker />
           </div>

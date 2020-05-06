@@ -12,7 +12,6 @@ export default function DoughnutChart() {
     };
     fetchcData();
   }, []);
-  console.log(cData);
 
   //doughnut chart data
   const doughnutData = {
@@ -40,7 +39,7 @@ export default function DoughnutChart() {
     ],
   };
 
-  const doughnutChart = cData.length ? (
+  const doughnutChart = cData?.length ? (
     <Doughnut
       data={doughnutData}
       height={245}

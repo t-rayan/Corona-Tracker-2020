@@ -56,3 +56,11 @@ export const fetchCountryData = async () => {
     return fiveCountriesData;
   } catch (error) {}
 };
+export const fetchAllCountry = async () => {
+  try {
+    const {
+      data: { Countries },
+    } = await axios.get(url);
+    return Countries;
+  } catch (error) {}
+};

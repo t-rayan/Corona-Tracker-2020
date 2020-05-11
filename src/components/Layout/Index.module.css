@@ -1,0 +1,20 @@
+.globalContainer {
+  display: grid;
+  grid-template-columns: 30% 37% 32%;
+  grid-gap: 15px;
+  align-items: start;
+}
+.title {
+  margin-top: 1.2rem;
+  font-weight: 100;
+  color: rgba(174, 179, 177, 0.75);
+}
+.countryData {
+  margin-top: 2rem;
+}
+.countryContainer {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-gap: 20px;
+  justify-content: space-between;
+}

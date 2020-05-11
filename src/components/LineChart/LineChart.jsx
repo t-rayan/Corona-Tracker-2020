@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchDailyData } from "../../api";
+import { fetchWeeklyData } from "../../api";
 import { Line } from "react-chartjs-2";
 import styles from "./LineChart.module.css";
 import numFormatter from "../../helpers/formatter";
@@ -9,7 +9,7 @@ const LineChart = () => {
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setDailyData(await fetchDailyData());
+      setDailyData(await fetchWeeklyData());
     };
     fetchAPI();
   }, []);
@@ -18,7 +18,7 @@ const LineChart = () => {
     labels: dailyData?.map(({ date }) => date),
     datasets: [
       {
-        data: dailyData.map(({ confirmed }) => confirmed),
+        data: dailyData?.map(({ confirmed }) => confirmed),
         label: "Infected",
         borderWidth: 3,
         borderCapStyle: "rounded",

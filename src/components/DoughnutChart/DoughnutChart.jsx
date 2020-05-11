@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { fetchCountryData } from "../../api";
+import { fetchTopCountryData } from "../../api";
 import styles from "./DoughnutChart.module.css";
+import Loader from "../Loader/Loader";
 
 export default function DoughnutChart() {
   const [cData, setcData] = useState([]);
 
   useEffect(() => {
     const fetchcData = async () => {
-      setcData(await fetchCountryData());
+      setcData(await fetchTopCountryData());
     };
     fetchcData();
   }, []);
 
   //doughnut chart data
   const doughnutData = {
-    labels: cData.map(({ CountryCode }) => CountryCode),
+    labels: cData?.map(({ CountryCode }) => CountryCode),
 
     datasets: [
       {
@@ -67,5 +68,9 @@ export default function DoughnutChart() {
     />
   ) : null;
 
-  return <div className={styles.doughnutContainer}>{doughnutChart}</div>;
+  return (
+    <div className={styles.doughnutContainer}>
+      {cData ? doughnutChart : <Loader />}
+    </div>
+  );
 }

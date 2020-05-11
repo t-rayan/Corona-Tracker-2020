@@ -1,12 +1,13 @@
 import axios from "axios";
 import numFormatter from "../helpers/formatter";
 
-const url = "https://api.covid19api.com/summary";
+const url1 = "https://api.covid19api.com/summary";
+const url2 = "https://covid19.mathdro.id/api/daily";
 
-export const fetchData = async () => {
+export const fetchGlobalData = async () => {
   try {
     //destructing
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url1);
 
     const globalData = {
       NewConfirmed: data.Global?.NewConfirmed,
@@ -28,9 +29,9 @@ const lastFromArray = (array, n) => {
   return array.slice(Math.max(array.length - n, 0));
 };
 
-export const fetchDailyData = async () => {
+export const fetchWeeklyData = async () => {
   try {
-    const { data } = await axios.get("https://covid19.mathdro.id/api/daily");
+    const { data } = await axios.get(url2);
 
     const reqData = data.map((dData) => ({
       confirmed: dData.confirmed?.total,
@@ -43,11 +44,11 @@ export const fetchDailyData = async () => {
     return sevenDaysData;
   } catch (error) {}
 };
-export const fetchCountryData = async () => {
+export const fetchTopCountryData = async () => {
   try {
     const {
       data: { Countries },
-    } = await axios.get(url);
+    } = await axios.get(url1);
 
     const fiveCountriesData = Countries?.sort((a, b) => {
       return a.TotalConfirmed - b.TotalConfirmed;
@@ -60,7 +61,7 @@ export const fetchAllCountry = async () => {
   try {
     const {
       data: { Countries },
-    } = await axios.get(url);
+    } = await axios.get(url1);
     return Countries;
   } catch (error) {}
 };

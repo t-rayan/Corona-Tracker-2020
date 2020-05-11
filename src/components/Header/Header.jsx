@@ -1,6 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faBars } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee, faBars } from "@fortawesome/free-solid-svg-icons";
 import styles from "../Header/Header.module.css";
 
 export default function Header() {

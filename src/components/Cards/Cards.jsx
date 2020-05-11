@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Loader from "../Loader/Loader";
 import styles from "../Cards/Cards.module.css";
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 import numFormatter from "../../helpers/formatter";
 import { Consumer } from "../../Context";
 
@@ -29,14 +29,14 @@ export default function Cards() {
         return (
           <div className={styles.cardsContainer}>
             <div className={styles.cards}>
-              <img src={CaseIcon} className={styles.icon} />
+              <img src={CaseIcon} className={styles.icon} alt="" />
               <h6 className={styles.cardTitle}>Total Cases</h6>
               <p className={styles.cardText}>
                 {numFormatter(global_data.TotalConfirmed)}
               </p>
             </div>
             <div className={styles.cards}>
-              <img src={DeathIcon} className={styles.icon} />
+              <img src={DeathIcon} className={styles.icon} alt="" />
               <h6 className={styles.cardTitle}>Total Deaths</h6>
 
               <p className={styles.cardText}>
@@ -44,7 +44,7 @@ export default function Cards() {
               </p>
             </div>
             <div className={styles.cards}>
-              <img src={RecoveredIcon} className={styles.icon} />
+              <img src={RecoveredIcon} className={styles.icon} alt="" />
 
               <h6 className={styles.cardTitle}>Total Recovered</h6>
 
@@ -53,7 +53,7 @@ export default function Cards() {
               </p>
             </div>
             <div className={styles.cards}>
-              <img src={NewCaseIcon} className={styles.icon} />
+              <img src={NewCaseIcon} className={styles.icon} alt="" />
 
               <h6 className={styles.cardTitle}>New Confirmed</h6>
 

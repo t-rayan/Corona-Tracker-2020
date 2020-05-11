@@ -4,7 +4,7 @@ import { fetchTopCountryData } from "../../api";
 import styles from "./DoughnutChart.module.css";
 import Loader from "../Loader/Loader";
 
-export default function DoughnutChart() {
+const DoughnutChart = () => {
   const [cData, setcData] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function DoughnutChart() {
 
     datasets: [
       {
-        data: cData.map(({ TotalConfirmed }) => TotalConfirmed),
+        data: cData?.map(({ TotalConfirmed }) => TotalConfirmed),
         backgroundColor: [
           "#4BBD90",
           "rgba(37, 150, 172, 0.5)",
@@ -73,4 +73,6 @@ export default function DoughnutChart() {
       {cData ? doughnutChart : <Loader />}
     </div>
   );
-}
+};
+
+export default DoughnutChart;

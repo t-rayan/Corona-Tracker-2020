@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { fetchWeeklyData } from "../../api";
 import { Line } from "react-chartjs-2";
 import styles from "./LineChart.module.css";
-import numFormatter from "../../helpers/formatter";
 
 const LineChart = () => {
   const [dailyData, setDailyData] = useState([]);

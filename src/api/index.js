@@ -1,5 +1,4 @@
 import axios from "axios";
-import numFormatter from "../helpers/formatter";
 
 const url1 = "https://api.covid19api.com/summary";
 const url2 = "https://covid19.mathdro.id/api/daily";

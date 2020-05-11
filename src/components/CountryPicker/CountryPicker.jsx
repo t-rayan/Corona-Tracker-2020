@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../CountryPicker/CountryPicker.module.css";
+// import styles from "../CountryPicker/CountryPicker.module.css";
 import { Consumer } from "../../Context";
 
 const CountryPicker = () => {

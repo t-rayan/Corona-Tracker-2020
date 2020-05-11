@@ -18,15 +18,17 @@ const AllCountry = () => {
   }, []);
 
   const renderCountry = (allCountry, index) => {
-    return (
-      <tr key={index}>
-        <td>{allCountry.Country}</td>
-        <td>{allCountry.TotalConfirmed}</td>
-        <td>{allCountry.NewConfirmed}</td>
-        <td>{allCountry.TotalRecovered}</td>
-        <td>{allCountry.TotalDeaths}</td>
-      </tr>
-    );
+    if (allCountry) {
+      return (
+        <tr key={index}>
+          <td>{allCountry.Country}</td>
+          <td>{allCountry.TotalConfirmed}</td>
+          <td>{allCountry.NewConfirmed}</td>
+          <td>{allCountry.TotalRecovered}</td>
+          <td>{allCountry.TotalDeaths}</td>
+        </tr>
+      );
+    }
   };
 
   return (

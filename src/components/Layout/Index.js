@@ -3,8 +3,6 @@ import {
   Cards,
   LineChart,
   DoughnutChart,
-  Header,
-  Spinner,
   AllCountry,
   CountryPicker,
 } from "../../components";
@@ -24,7 +22,7 @@ const Index = () => {
         };
         console.log(value);
 
-        const { global_data, topCountries_data, allCountries_data } = value;
+        const { global_data } = value;
         const isTrue = isEmpty(global_data);
 
         //console.log(Object.values(value));

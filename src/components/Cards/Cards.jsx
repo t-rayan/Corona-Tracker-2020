@@ -14,6 +14,8 @@ export default function Cards() {
   return (
     <Consumer>
       {(value) => {
+        console.log(value);
+
         const isEmpty = (obj) => {
           for (let key in obj) {
             if (obj.hasOwnProperty(key)) return false;

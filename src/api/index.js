@@ -1,20 +1,17 @@
 import axios from "axios";
 
 const url1 = "https://api.covid19api.com/summary";
-const url2 = "https://covid19.mathdro.id/api/daily";
+const url2 = "https://covid19.mathdro.id/api/";
 
 export const fetchGlobalData = async () => {
   try {
     //destructing
-    const { data } = await axios.get(url1);
+    const { data } = await axios.get(url2);
 
     const globalData = {
-      NewConfirmed: data.Global?.NewConfirmed,
-      TotalConfirmed: data.Global?.TotalConfirmed,
-      NewDeaths: data.Global?.NewDeaths,
-      TotalDeaths: data.Global?.TotalDeaths,
-      NewRecovered: data.Global?.NewRecovered,
-      TotalRecovered: data.Global?.TotalRecovered,
+      TotalConfirmed: data.confirmed?.value,
+      TotalDeaths: data.deaths?.value,
+      TotalRecovered: data.recovered?.value,
     };
 
     return globalData;
@@ -30,7 +27,7 @@ const lastFromArray = (array, n) => {
 
 export const fetchWeeklyData = async () => {
   try {
-    const { data } = await axios.get(url2);
+    const { data } = await axios.get(url2 + "daily");
 
     const reqData = data.map((dData) => ({
       confirmed: dData.confirmed?.total,
@@ -63,4 +60,11 @@ export const fetchAllCountry = async () => {
     } = await axios.get(url1);
     return Countries;
   } catch (error) {}
+};
+
+export const listCountry = async () => {
+  const {
+    data: { countries },
+  } = await axios.get(url2 + "countries");
+  return countries.map((country) => country.name);
 };

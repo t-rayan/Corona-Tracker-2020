@@ -44,10 +44,14 @@ const DoughnutChart = () => {
     <Doughnut
       data={doughnutData}
       height={245}
-      width={10}
       options={{
         responsive: true,
         maintainAspectRatio: false,
+        title: {
+          display: true,
+          text: "Countries with most cases",
+          lineHeight: 2,
+        },
         legend: {
           display: true,
           position: "left",
@@ -61,7 +65,9 @@ const DoughnutChart = () => {
         layout: {
           padding: {
             top: 20,
-            bottom: 20,
+            bottom: 10,
+            left: 20,
+            right: 50,
           },
         },
       }}

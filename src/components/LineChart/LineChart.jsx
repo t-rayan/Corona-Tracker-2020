@@ -39,15 +39,16 @@ const LineChart = () => {
         maintainAspectRatio: false,
 
         tooltips: {
-          backgroundColor: "rgba(49, 60, 254, 0.7)",
+          backgroundColor: "rgba(49, 60, 254, 0.9)",
         },
         title: {
-          display: false,
-          text: "Confirmed cases around world",
+          display: true,
+          text: "Daily Infection Rate",
+          position: "top",
         },
         legend: {
-          display: true,
-          position: "bottom",
+          display: false,
+          position: "top",
           labels: {
             fontColor: "#ccc",
             fontSize: 12,
@@ -57,10 +58,10 @@ const LineChart = () => {
         },
         layout: {
           padding: {
-            top: 50,
+            top: 20,
             left: 50,
             right: 50,
-            bottom: 0,
+            bottom: 10,
           },
         },
 

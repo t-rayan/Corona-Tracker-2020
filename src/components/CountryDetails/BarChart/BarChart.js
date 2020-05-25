@@ -26,9 +26,18 @@ export default function BarChart({
         responsive: true,
         maintainAspectRatio: false,
         legend: { display: false },
-        title: { display: true, text: "Current status in" + " " + country },
+        title: {
+          display: true,
+          text: "Current status in" + " " + country,
+          position: "bottom",
+        },
         layout: {
-          padding: 30,
+          padding: {
+            top: 60,
+            bottom: 0,
+            left: 20,
+            right: 20,
+          },
         },
         scales: {
           xAxes: [

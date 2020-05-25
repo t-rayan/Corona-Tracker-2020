@@ -18,14 +18,20 @@ export default class CountryDetails extends Component {
   componentDidMount() {
     // this.autoCountryChange();
     this.handleCountryChange("Nepal");
+    this.detectCountry();
   }
+  //getting current country
+  detectCountry = async () => {
+    const { data } = await axios.get("http://ip-api.com/json");
+    this.setState({
+      country: data.country,
+    });
+  };
   autoCountryChange = async () => {
-    const selectedCountry = "Nepal";
     const url = "https://covid19.mathdro.id/api/countries/";
-    const { data } = await axios.get(url + "Nepal");
+    const { data } = await axios.get(url + this.state.country);
 
     this.setState({
-      country: selectedCountry,
       confirmed: data.confirmed.value,
       deaths: data.deaths.value,
       recovered: data.recovered.value,

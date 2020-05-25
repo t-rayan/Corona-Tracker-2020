@@ -7,9 +7,7 @@ import {
   AllCountry,
   CountryDetails,
 } from "../../components";
-import { Consumer } from "../../Context";
 import styles from "../Layout/Index.module.css";
-import Loader from "../Loader/Loader";
 
 export default class Index extends Component {
   state = {

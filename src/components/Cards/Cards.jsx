@@ -7,7 +7,6 @@ import { Consumer } from "../../Context";
 
 import CaseIcon from "../../Icons/cases.svg";
 import DeathIcon from "../../Icons/deaths.svg";
-import NewCaseIcon from "../../Icons/newcases.svg";
 import RecoveredIcon from "../../Icons/recovered.svg";
 
 import cx from "classnames";

@@ -28,7 +28,7 @@ export default function BarChart({
         legend: { display: false },
         title: {
           display: true,
-          text: "Current status in" + " " + country,
+          text: "Current status in  " + country,
           position: "bottom",
         },
         layout: {
@@ -68,7 +68,7 @@ export default function BarChart({
   const styles = {
     backgroundColor: "#fff",
     borderRadius: "10px",
-    marginTop: "1rem",
+    marginTop: "1.5rem",
     boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
   };
 

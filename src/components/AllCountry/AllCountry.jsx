@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../AllCountry/AllCountry.module.css";
 import * as ReactBootstrap from "react-bootstrap";
-import { fetchAllCountry } from "../../api/index";
 import Loader from "../Loader/Loader";
 import { Consumer } from "../../Context";
 
@@ -12,6 +11,9 @@ const AllCountry = () => {
     <Consumer>
       {(value) => {
         const { allCountries_data } = value;
+        if (allCountries_data === undefined || allCountries_data.length === 0) {
+          return <Loader />;
+        }
         return (
           <div className="countryPicker">
             <div className="d-flex justify-content-between">

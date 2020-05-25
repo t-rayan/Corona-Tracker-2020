@@ -1,14 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 // import styles from "../CountryPicker/CountryPicker.module.css";
 import { Consumer } from "../../../Context";
 import * as ReactBootstrap from "react-bootstrap";
 
 const CountryPicker = ({ handleCountryChange }) => {
   //style
-  const pStyle = {
-    fontSize: ".8rem",
-    color: "#a37827",
-  };
   const dropdownStyle = {
     height: "auto",
     maxHeight: "300px",
@@ -23,7 +19,7 @@ const CountryPicker = ({ handleCountryChange }) => {
           <div className="selectCountry">
             <ReactBootstrap.Dropdown>
               <ReactBootstrap.Dropdown.Toggle
-                variant="success"
+                variant="primary"
                 id="dropdown-basic"
                 size="sm"
               >
@@ -32,7 +28,6 @@ const CountryPicker = ({ handleCountryChange }) => {
 
               <ReactBootstrap.Dropdown.Menu
                 style={dropdownStyle}
-                defaultValue=""
                 onClick={(e) => {
                   handleCountryChange(e.target.text);
                 }}

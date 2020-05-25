@@ -7,6 +7,7 @@
   font-size: 0.9rem;
   font-weight: 300;
 }
+
 .tableWrapperScrolly {
   display: block;
 }
@@ -17,18 +18,21 @@ thead th {
   background-color: #5156aa !important;
   font-weight: 400;
 }
+
 tbody {
   color: #2e302f !important;
 }
 
 .title {
-  font-weight: 500;
+  margin-bottom: 0;
 }
+
 .searchInput {
   border-radius: 50px;
   border: none !important;
   outline: none !important;
 }
+
 ::placeholder {
   color: #aeb3b1 !important;
   font-weight: 100;

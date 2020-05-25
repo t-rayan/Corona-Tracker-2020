@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Consumer } from "../../Context";
 import CountryPicker from "../CountryDetails/CountryPicker/CountryPicker";
 import axios from "axios";
-import Details from "../CountryDetails/Details/Details";
 import BarChart from "../CountryDetails/BarChart/BarChart";
+import styles from "./CountryDetails.module.css";
 
 export default class CountryDetails extends Component {
   constructor(props) {
@@ -56,8 +55,8 @@ export default class CountryDetails extends Component {
 
     return (
       <div className="countryDetails">
-        <div className="header d-flex justify-content-between  align-items-center align-content-center">
-          <p>Cases per country</p>
+        <div className={styles.header}>
+          <p className={styles.title}>Cases per country</p>
           <CountryPicker handleCountryChange={this.handleCountryChange} />
         </div>
 

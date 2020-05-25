@@ -13,9 +13,9 @@ export default function BarChart({
           {
             data: [confirmed, recovered, deaths],
             backgroundColor: [
-              "rgba(49, 60, 254, 0.5)",
-              "rgba(37, 150, 172, 0.5)",
-              "rgba(249, 79, 75, 0.5)",
+              "rgba(49, 60, 254, 0.6)",
+              "rgba(37, 150, 172, 0.6)",
+              "rgba(249, 79, 75, 0.6)",
             ],
             barThickness: 30,
             minBarLength: [10, 10, 15],
@@ -28,7 +28,7 @@ export default function BarChart({
         legend: { display: false },
         title: { display: true, text: "Current status in" + " " + country },
         layout: {
-          padding: 20,
+          padding: 30,
         },
         scales: {
           xAxes: [
@@ -60,6 +60,7 @@ export default function BarChart({
     backgroundColor: "#fff",
     borderRadius: "10px",
     marginTop: "1rem",
+    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
   };
 
   return <div style={styles}>{barChart}</div>;

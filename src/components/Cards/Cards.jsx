@@ -10,6 +10,8 @@ import DeathIcon from "../../Icons/deaths.svg";
 import NewCaseIcon from "../../Icons/newcases.svg";
 import RecoveredIcon from "../../Icons/recovered.svg";
 
+import cx from "classnames";
+
 export default function Cards() {
   return (
     <Consumer>
@@ -30,14 +32,14 @@ export default function Cards() {
         }
         return (
           <div className={styles.cardsContainer}>
-            <div className={styles.cards}>
+            <div className={cx(styles.cards, styles.cardCase)}>
               <img src={CaseIcon} className={styles.icon} alt="" />
               <h6 className={styles.cardTitle}>Total Cases</h6>
               <p className={styles.cardText}>
                 {numFormatter(global_data.TotalConfirmed)}
               </p>
             </div>
-            <div className={styles.cards}>
+            <div className={cx(styles.cards, styles.cardDeaths)}>
               <img src={DeathIcon} className={styles.icon} alt="" />
               <h6 className={styles.cardTitle}>Total Deaths</h6>
 
@@ -45,11 +47,9 @@ export default function Cards() {
                 {numFormatter(global_data.TotalDeaths)}
               </p>
             </div>
-            <div className={styles.cards}>
+            <div className={cx(styles.cards, styles.cardRecovered)}>
               <img src={RecoveredIcon} className={styles.icon} alt="" />
-
               <h6 className={styles.cardTitle}>Total Recovered</h6>
-
               <p className={styles.cardText}>
                 {numFormatter(global_data.TotalRecovered)}
               </p>

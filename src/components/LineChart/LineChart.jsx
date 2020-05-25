@@ -33,7 +33,7 @@ const LineChart = () => {
   const lineChart = dailyData.length ? (
     <Line
       data={lineChartData}
-      height={248}
+      height={245}
       options={{
         responsive: true,
         maintainAspectRatio: false,

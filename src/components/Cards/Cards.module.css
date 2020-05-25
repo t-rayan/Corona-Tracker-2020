@@ -1,6 +1,9 @@
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'cardCase cardDeath'
+    'cardRecovered cardRecovered';
+  ;
   align-items: center;
   grid-gap: 20px;
 }
@@ -8,13 +11,21 @@
 .cards {
   width: 100%;
   background-color: #fff;
-  padding: .9rem 1rem;
+  padding: .95rem 1rem;
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.cards:nth-child(3) {
-  order: 4;
+.cardCase {
+  grid-area: cardCase
+}
+
+.cardDeaths {
+  grid-area: cardDeath
+}
+
+.cardRecovered {
+  grid-area: cardRecovered
 }
 
 .cardTitle {

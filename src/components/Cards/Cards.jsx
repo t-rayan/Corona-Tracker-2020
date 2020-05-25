@@ -54,15 +54,6 @@ export default function Cards() {
                 {numFormatter(global_data.TotalRecovered)}
               </p>
             </div>
-            <div className={styles.cards}>
-              <img src={NewCaseIcon} className={styles.icon} alt="" />
-
-              <h6 className={styles.cardTitle}>New Confirmed</h6>
-
-              <p className={styles.cardText}>
-                {numFormatter(global_data.NewConfirmed)}
-              </p>
-            </div>
           </div>
         );
       }}

@@ -3,6 +3,8 @@ import { Consumer } from "../../Context";
 import CountryPicker from "../CountryDetails/CountryPicker/CountryPicker";
 import axios from "axios";
 import Details from "../CountryDetails/Details/Details";
+import BarChart from "../CountryDetails/BarChart/BarChart";
+
 export default class CountryDetails extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,22 @@ export default class CountryDetails extends Component {
       recovered: "",
     };
   }
+  componentDidMount() {
+    // this.autoCountryChange();
+    this.handleCountryChange("Nepal");
+  }
+  autoCountryChange = async () => {
+    const selectedCountry = "Nepal";
+    const url = "https://covid19.mathdro.id/api/countries/";
+    const { data } = await axios.get(url + "Nepal");
+
+    this.setState({
+      country: selectedCountry,
+      confirmed: data.confirmed.value,
+      deaths: data.deaths.value,
+      recovered: data.recovered.value,
+    });
+  };
 
   handleCountryChange = async (country) => {
     const selectedCountry = country;
@@ -28,7 +46,7 @@ export default class CountryDetails extends Component {
   };
 
   render() {
-    const isDetails = this.state.country;
+    const isDetails = this.state.confirmed;
 
     return (
       <div className="countryDetails">
@@ -37,7 +55,7 @@ export default class CountryDetails extends Component {
           <CountryPicker handleCountryChange={this.handleCountryChange} />
         </div>
 
-        {isDetails && <Details data={this.state} />}
+        {isDetails && <BarChart data={this.state} />}
       </div>
     );
   }

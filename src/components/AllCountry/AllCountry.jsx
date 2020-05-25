@@ -45,7 +45,7 @@ const AllCountry = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {allCountries_data.map((all, i) => (
+                  {allCountries_data?.map((all, i) => (
                     <tr key={i}>
                       <td>{all.Country}</td>
                       <td>{all.TotalConfirmed}</td>

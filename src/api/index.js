@@ -58,8 +58,10 @@ export const fetchAllCountry = async () => {
     const {
       data: { Countries },
     } = await axios.get(url1);
-    return Countries;
-  } catch (error) {}
+    return Countries.map((country) => country);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const listCountry = async () => {

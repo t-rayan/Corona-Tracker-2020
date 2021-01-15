@@ -1,3 +1,9 @@
+#CORONA TRACKER APP BUILT USING REACT JS AND EXTERNAL API
+
+#TECH USED
+- REACT JS
+- CHART JS
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
